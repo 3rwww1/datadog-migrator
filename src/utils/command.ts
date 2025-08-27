@@ -21,10 +21,12 @@ export { CommandOptions };
 export function createDatadogService(options: {
   "api-key": string;
   "app-key": string;
+  "site": string;
 }): DatadogService {
   return new DatadogService({
     apiKey: options["api-key"],
     appKey: options["app-key"],
+    site: options["site"],
   });
 }
 
@@ -80,6 +82,11 @@ export function setupAuthOptions(command: Denomander): Denomander {
       CommandOptions.appKey.description,
       identity,
       Deno.env.get(CommandOptions.appKey.defaultEnv),
+    )
+    .option(
+      CommandOptions.site.flag,
+      CommandOptions.site.description,
+      identity,
     );
 }
 

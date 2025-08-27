@@ -10,6 +10,9 @@ export interface BaseCommandOptions {
   "api-key": string;
   "app-key": string;
 
+  // Datadog site (e.g datadoghq.eu)
+  "site": string;
+
   // Config path
   config: string;
 }
@@ -61,6 +64,10 @@ export const CommandOptions = {
     flag: "-a, --app-key",
     description: "Datadog App key",
     defaultEnv: "DATADOG_APP_KEY",
+  },
+  site: {
+    flag: "-s, --site",
+    description: "Datadog site (e.g datadoghq.eu)",
   },
   
   // Config option
